@@ -30,7 +30,7 @@ body{
     height: 80px;
     font-size: 23px;
     font-weight: bold;
-    background-color: rgb(255, 85, 0);
+    background-color: red;
     opacity: 0.5;
     cursor: pointer;
     transform: translateY(0);
@@ -63,4 +63,30 @@ body{
     font-size: 23px;
     font-weight: bold;
     background-color: aqua;
+    border: none;
+    cursor: pointer;
+    animation: pulse-glow 2s ease-in-out infinite;
+    animation: color-shift 4s linear infinite;
+}
+
+@keyframes pulse-glow{
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0px rgba(0, 255, 255, 0);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0px rgba(0, 255, 255, 0);
+    }
+}
+
+@keyframes color-shift {
+    0%   { background-color: aqua; transform: rotate(0deg); }
+    33%  { background-color: pink; transform: rotate(5deg); }
+    66%  { background-color: yellow; transform: rotate(-5deg); }
+    100% { background-color: aqua; transform: rotate(0deg); }
 }
