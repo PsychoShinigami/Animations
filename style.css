@@ -62,11 +62,12 @@ body{
     height: 80px;
     font-size: 23px;
     font-weight: bold;
-    background-color: aqua;
-    border: none;
+    background: transparent;
+    border: 4px solid aqua;
+    color: aqua;
     cursor: pointer;
-    animation: pulse-glow 2s ease-in-out infinite;
-    animation: color-shift 4s linear infinite;
+    animation: border-glow 2s linear infinite;
+    animation: border-rainbow 4s linear infinite;
 }
 
 @keyframes pulse-glow{
@@ -84,9 +85,31 @@ body{
     }
 }
 
-@keyframes color-shift {
+@keyframes color-shift{
     0%   { background-color: aqua; transform: rotate(0deg); }
     33%  { background-color: pink; transform: rotate(5deg); }
     66%  { background-color: yellow; transform: rotate(-5deg); }
     100% { background-color: aqua; transform: rotate(0deg); }
 }
+
+@keyframes vibrate{
+    0% {transform: rotate(0deg) translate(0, 0);}
+    25% {transform: rotate(1deg) translate(1px, 1px);}
+    50% {transform: rotate(-1deg) translate(-1px, -1px);}
+    75% {transform: rotate(1deg) translate(1px, -1px);}
+    100% {transform: rotate(0deg) translate(0, 0);}
+}
+
+@keyframes border-glow{
+    0% {box-shadow: 0 0 5px rgb(0, 255, 255), inset 0 0 5px rgb(0, 255, 255);}
+    50% {box-shadow: 0 0 20px rgb(0, 255, 255), inset 0 0 10px rgb(0, 255, 255);}
+    100% {box-shadow: 0 0 5px rgb(0, 255, 255), inset 0 0 5px rgb(0, 255, 255);}
+}
+
+@keyframes border-rainbow{
+    0% { border-color: aqua; color: aqua;}
+    33% { border-color: #ff00ff; color: #ff00ff;}
+    66% { border-color: #ffcc00; color: #ffcc00;}
+    100% { border-color: aqua; color: aqua;}
+}
+
